@@ -4,15 +4,13 @@ import (
 	"log"
 
 	auth "tusharhow/auth/handlers"
+
 	"github.com/gin-gonic/gin"
 )
 
-var (
-	router = gin.Default()
-)
-
 func main() {
-	router.POST("/login", auth.Login)
-	router.POST("/register", auth.Register)
-	log.Fatal(router.Run(":8080"))
+	r := gin.Default()
+	r.POST("/login", auth.Login)
+	r.POST("/register", auth.Register)
+	log.Fatal(r.Run(":8080"))
 }
